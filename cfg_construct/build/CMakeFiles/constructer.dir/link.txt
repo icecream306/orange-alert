@@ -1,1 +1,0 @@
-/usr/bin/clang++-14 -g -rdynamic CMakeFiles/constructer.dir/src/main.cpp.o CMakeFiles/constructer.dir/src/scanner.cpp.o -o constructer 

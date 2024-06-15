@@ -1,3 +1,0 @@
-/home/urbanrain/cfg_construct/build/CMakeFiles/constructor.dir
-/home/urbanrain/cfg_construct/build/CMakeFiles/edit_cache.dir
-/home/urbanrain/cfg_construct/build/CMakeFiles/rebuild_cache.dir
