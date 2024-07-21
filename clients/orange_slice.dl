@@ -1,0 +1,70 @@
+#include "../clientlib/decompiler_imports.dl"
+
+.decl Orange_Key_Opcode(opcode : Opcode)
+
+Orange_Key_Opcode("BLOCKHASH"). 
+Orange_Key_Opcode("TIMESTAMP"). 
+Orange_Key_Opcode("CALLDATALOAD"). 
+Orange_Key_Opcode("CALLDATACOPY"). 
+Orange_Key_Opcode("SSTORE"). 
+Orange_Key_Opcode("SLOAD"). 
+Orange_Key_Opcode("JUMP"). 
+Orange_Key_Opcode("JUMPI"). 
+Orange_Key_Opcode("CALLPRIVATE"). 
+Orange_Key_Opcode("REVERT"). 
+Orange_Key_Opcode("RETURN"). 
+Orange_Key_Opcode("THROW"). 
+Orange_Key_Opcode("STOP"). 
+
+Orange_Key_Opcode(opcode) :-
+    FlowOp(opcode).
+
+.decl Orange_Del_Statement(stmt :Statement)
+.output Orange_Del_Statement
+
+.decl Orange_Del_Var(var : Variable)
+.output Orange_Del_Var
+
+Orange_Del_Statement(stmt) :-
+    Statement_Opcode(stmt,opcode),
+    !Orange_Key_Opcode(opcode).
+
+
+
+Orange_Del_Statement(stmt) :-
+    Statement_Opcode(stmt,opcode),
+    UnaryArith(opcode),
+    Statement_Uses(stmt,a,0),
+    Orange_Del_Var(a).
+
+Orange_Del_Statement(stmt) :-
+    Statement_Opcode(stmt,opcode),
+    BinArith(opcode),
+    Statement_Uses(stmt,a,0),
+    Statement_Uses(stmt,b,1),
+    Orange_Del_Var(a),
+    Orange_Del_Var(b).
+
+Orange_Del_Statement(stmt) :-
+    Statement_Opcode(stmt,opcode),
+    TernArith(opcode),
+    Statement_Uses(stmt,a,0),
+    Statement_Uses(stmt,b,1),
+    Statement_Uses(stmt,c,2),
+    Orange_Del_Var(a),
+    Orange_Del_Var(b),
+    Orange_Del_Var(c).
+
+Orange_Del_Var(var) :-
+    Orange_Del_Statement(stmt),
+    Statement_Defines(stmt,var,_).
+
+Orange_Del_Var(var) :-
+    Statement_Uses(stmt,del_var,_),
+    Orange_Del_Var(del_var),
+    Statement_Defines(stmt,var,_),
+    Statement_Opcode(stmt,opcode),
+    FlowOp(opcode).
+
+
+    

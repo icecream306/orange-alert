@@ -1,0 +1,109 @@
+digraph G {
+63[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x3f</TD></TR>
+<TR><TD>0x44: JUMP v42(0x65)<BR/>
+</TD></TR>
+</TABLE>>];
+63->101
+150[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x96</TD></TR>
+<TR><TD>0x9c: SSTORE v98(0x0), v8f<BR/>
+0xa6: JUMP va4(0x6e)<BR/>
+</TD></TR>
+</TABLE>>];
+150->110
+0[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x0</TD></TR>
+<TR><TD>0xa: JUMPI v8(0xf), v7<BR/>
+</TD></TR>
+</TABLE>>];
+0->15
+0->11
+101[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x65</TD></TR>
+<TR><TD>0x69: v69 = SLOAD v66(0x0)<BR/>
+0x6d: JUMP v40(0x45)<BR/>
+</TD></TR>
+</TABLE>>];
+101->69
+130[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x82</TD></TR>
+<TR><TD>0x88: SSTORE v84(0x0), v7b<BR/>
+0x92: JUMP v90(0x96)<BR/>
+</TD></TR>
+</TABLE>>];
+130->150
+15[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0xf</TD></TR>
+<TR><TD>0xe1: JUMPI ve0(0xe6), v14<BR/>
+</TD></TR>
+</TABLE>>];
+15->24
+15->230
+91[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x5b</TD></TR>
+<TR><TD>0x62: JUMP v60(0x6e)<BR/>
+</TD></TR>
+</TABLE>>];
+91->110
+236[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0xec</TD></TR>
+<TR><TD>0xee: CALLPRIVATE ved(0x3f)<BR/>
+</TD></TR>
+</TABLE>>];
+24[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x18</TD></TR>
+<TR><TD>0x1a: v1a = CALLDATALOAD v18(0x0)<BR/>
+0x1d: v1d = SHR v1b(0xe0), v1a<BR/>
+0xe3: JUMPI ve2(0xe9), v24<BR/>
+</TD></TR>
+</TABLE>>];
+24->233
+24->40
+50[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x32</TD></TR>
+<TR><TD>0x36: REVERT v33(0x0), v33(0x0)<BR/>
+</TD></TR>
+</TABLE>>];
+233[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0xe9</TD></TR>
+<TR><TD>0xeb: CALLPRIVATE vea(0x37)<BR/>
+</TD></TR>
+</TABLE>>];
+69[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x45</TD></TR>
+<TR><TD>0x5a: RETURN v55, v58(0x20)<BR/>
+</TD></TR>
+</TABLE>>];
+11[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0xb</TD></TR>
+<TR><TD>0xe: REVERT vb(0x0), vb(0x0)<BR/>
+</TD></TR>
+</TABLE>>];
+40[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x28</TD></TR>
+<TR><TD>0xe5: JUMPI ve4(0xec), v2e<BR/>
+</TD></TR>
+</TABLE>>];
+40->230
+40->236
+230[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0xe6</TD></TR>
+<TR><TD>0xe8: CALLPRIVATE ve7(0x32)<BR/>
+</TD></TR>
+</TABLE>>];
+55[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x37</TD></TR>
+<TR><TD>0x3c: JUMP v3a(0x5b)<BR/>
+</TD></TR>
+</TABLE>>];
+55->91
+110[shape="plain" color="green" label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD>0x6e</TD></TR>
+<TR><TD>0x6e_0x0: v6e_0 = PHI v5e(0x0), va3<BR/>
+0x74: SSTORE v70(0x0), v6e_0<BR/>
+0x7e: JUMP v7c(0x82)<BR/>
+</TD></TR>
+</TABLE>>];
+110->130
+}
