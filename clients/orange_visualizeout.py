@@ -94,7 +94,7 @@ def draw_graph(functions: Mapping[str, Function]):
     # 根据call_graph构建contract_graph
     for start_stmt,to_block in call_map.items():
         to_stmt = block_begin_stmt[to_block]
-        contract_graph.add_edge(start_stmt,to_stmt,edge_type=EdgeType.CALL)
+        contract_graph.add_edge(start_stmt,to_stmt,edge_type=EdgeType.CALL.value)
     
     # nx.write_gpickle(contract_graph,"contract.gpickle")
     with open("contract.gpickle","wb") as f:
@@ -106,7 +106,7 @@ def draw_block(block: Block,visited: Set[str],func_graph : nx.MultiDiGraph,prev_
     if block.ident in visited:
         # 添加和前一个块最后语句之间的跳转边
         if prev_block is not None:
-            func_graph.add_edge(prev_block.statements[-1].ident,block.statements[0].ident,edge_type=EdgeType.JUMP)
+            func_graph.add_edge(prev_block.statements[-1].ident,block.statements[0].ident,edge_type=EdgeType.JUMP.value)
         return
     
     visited.add(block.ident)
@@ -126,16 +126,16 @@ def draw_block(block: Block,visited: Set[str],func_graph : nx.MultiDiGraph,prev_
     block_begin_stmt[block.ident] = block.statements[0].ident
     block_end_stmt[block.ident] = block.statements[-1].ident
     # 添加block的第一个节点
-    func_graph.add_node(block.statements[0].ident,node_type=get_node_type(block.statements[0]),source_file=contract_name)
+    func_graph.add_node(block.statements[0].ident,node_type=get_node_type(block.statements[0]).value,source_file=contract_name)
 
     # 添加和前一个块最后语句之间的跳转边
     if prev_block is not None:
-        func_graph.add_edge(prev_block.statements[-1].ident,block.statements[0].ident,edge_type=EdgeType.JUMP)
+        func_graph.add_edge(prev_block.statements[-1].ident,block.statements[0].ident,edge_type=EdgeType.JUMP.value)
 
     # 将块内语句顺序添加进图
     for i in range(1,len(block.statements)):
-        func_graph.add_node(block.statements[i].ident,node_type=get_node_type(block.statements[i]),source_file=contract_name)
-        func_graph.add_edge(block.statements[i-1].ident,block.statements[i].ident,edge_type=EdgeType.SEQ)
+        func_graph.add_node(block.statements[i].ident,node_type=get_node_type(block.statements[i]).value,source_file=contract_name)
+        func_graph.add_edge(block.statements[i-1].ident,block.statements[i].ident,edge_type=EdgeType.SEQ.value)
     
     # 记录call关系
     if block.statements[-1].op == "CALLPRIVATE":
