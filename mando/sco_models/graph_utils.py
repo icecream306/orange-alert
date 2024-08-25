@@ -10,8 +10,6 @@ from .opcodes import int2op
 # here we go again, terriable way to import my modules
 import sys
 sys.path.append('/home/dumbcoo/orange-alert')
-from clients.orange_visualizeout import NodeType
-from clients.orange_visualizeout import EdgeType
 
 def add_hetero_ids(nx_graph):
     nx_g = nx_graph

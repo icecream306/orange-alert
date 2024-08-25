@@ -217,13 +217,13 @@ if __name__ == '__main__':
     args = parser.parse_args().__dict__
 
     default_configure = {
-    'lr': 0.0005,             # Learning rate
+    'lr': 0.0001,             # Learning rate
     'num_heads': 8,        # Number of attention heads for node-level attention
     'hidden_units': 8,
     'dropout': 0.6,
     'weight_decay': 0.001,
     'num_epochs': 30,
-    'batch_size': 32,
+    'batch_size': 256,
     'patience': 100,
     'device': 'cuda:0' if torch.cuda.is_available() else 'cpu'
     }
