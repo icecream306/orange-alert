@@ -5,3 +5,7 @@ cfg_construct/.cache
 **/__pycache__
 build
 dataset/ucllc-raw
+dataset/denial_of_service
+dataset/reentrancy
+dataset/time_manipulation
+dataset/arithmetic
