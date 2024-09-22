@@ -3,3 +3,5 @@ cfg_construct/.vscode
 .vscode
 cfg_construct/.cache
 **/__pycache__
+build
+dataset/ucllc-raw
